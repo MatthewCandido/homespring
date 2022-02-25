@@ -4,7 +4,8 @@ import {
 
 function validateEnv() {
     cleanEnv(process.env, {
-        GOOGLE_BOOKS_ENDPOINT: str()
+        GOOGLE_BOOKS_ENDPOINT: str(),
+        GOOGLE_BOOKS_API_KEY: str()
     });
 }
 

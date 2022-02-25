@@ -16,7 +16,7 @@ class BooksService {
                 reject();
                 
             const books: Array<object> = [];
-            response.data.items.forEach( (item:any, idx: number) => {       
+            response.data.items.forEach( (item:any, idx: number) => {  
                 books.push({
                     "title": item.volumeInfo.title,
                     "authors": item.volumeInfo.authors,
@@ -24,8 +24,8 @@ class BooksService {
                     "publisher": item.volumeInfo.publisher, 
                     "publishedDate": item.volumeInfo.publishedDate, 
                     "description": item.volumeInfo.description, 
-                    "thumbnail": item.volumeInfo.imageLinks.thumbnail
-                }); 
+                    "thumbnail": item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : ""
+                });
             });
             resolve(books);
         }) 

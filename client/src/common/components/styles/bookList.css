@@ -1,0 +1,13 @@
+.book-list-container {
+    
+}
+
+.book-list-content {
+    min-width: 75%;
+    max-width: 75%;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+}

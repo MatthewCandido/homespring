@@ -1,6 +1,7 @@
 .book-item-component-container {
     background-color: white;
-    width: 85%;
+    min-width: 65%;
+    min-width: 65%;
     padding: 10px;
 }
 
@@ -12,12 +13,11 @@
 }
 
 .left-alignment {
-    margin-left: 10px;
+    margin-left: 0px;
 }
 
 img {
-    width: 60.36px;
-    height: 55.75px;
+    width: 40px;
 }
 
 hr {
@@ -32,6 +32,10 @@ hr {
 .authors {
     font-size: 14px;
     color: #3F3F46 !important;
+}
+
+.author-categories {
+    margin-left: 5px;
 }
 
 .categories {

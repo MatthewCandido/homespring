@@ -5,11 +5,11 @@ class BooksService {
     private GOOGLE_BOOKS_ENDPOINT = process.env.GOOGLE_BOOKS_ENDPOINT;
     private GOOGLE_BOOKS_APIKEY = process.env.GOOGLE_BOOKS_API_KEY;
     
-    public getBooksBySearch = async (q: string) => {
+    public getBooksBySearch = async (q: string, startIndex: number) => {
         return new Promise( async (resolve, reject) => {
             const options = {
                 host: this.GOOGLE_BOOKS_ENDPOINT,
-                path: `/books/v1/volumes?q=${q}&key=${this.GOOGLE_BOOKS_APIKEY}`
+                path: `/books/v1/volumes?q=${q}&startIndex=${startIndex}&maxResults=5&key=${this.GOOGLE_BOOKS_APIKEY}`
             };
             const response = await axios.get(`${options.host}${options.path}`);
             if (!response) 
@@ -25,7 +25,8 @@ class BooksService {
                     "publishedDate": item.volumeInfo.publishedDate, 
                     "description": item.volumeInfo.description, 
                     "thumbnail": item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "",
-                    "categories": item.volumeInfo.categories ? item.volumeInfo.categories : []
+                    "categories": item.volumeInfo.categories ? item.volumeInfo.categories : [],
+                    "averageRating": item.volumeInfo.averageRating ? item.volumeInfo.averageRating : null
                 });
             });
             resolve(books);

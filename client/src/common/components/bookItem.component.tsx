@@ -11,18 +11,18 @@ class BookItemComponent extends React.Component<IBookItemComponentProps, any> {
                 <div>
                     {books.map( (book) => {
                         console.log(book)
-                        let authors = book.authors.length ? book.authors[0] : "";
-                        if (book.authors.length > 1)
+                        let authors = book.authors && book.authors.length ? book.authors[0] : "";
+                        if (book.authors && book.authors.length > 1)
                             authors = `${authors}, ${book.authors[1]}`;
                         
-                        let categories = book.categories.length ? book.categories[0] : "";
-                        if (book.categories.length > 1)
+                        let categories = book.categories && book.categories.length ? book.categories[0] : "";
+                        if (book.categories && book.categories.length > 1)
                             categories = `${categories}, ${book.categories[1]}`;
                         
                         return(<div>
                             <div className="row">
                                 <div><img src={book.thumbnail} /></div>
-                                <div>
+                                <div className="author-categories">
                                     <span className="authors">{`${authors}`}</span>
                                     <span className="bullet">{`\u2022`}</span>
                                     <span className="categories">{`${categories}`}</span>

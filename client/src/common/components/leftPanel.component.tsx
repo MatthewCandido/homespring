@@ -9,8 +9,8 @@ class LeftPanelComponent extends React.Component<ILeftPanelComponentProps, any> 
         return <div className="left-panel-container">
                 <div>
                     <div><span className="filter-title">Start count (1 to 5)</span></div>
-                    <select className="filter-select">
-                        <option value="0">All stars</option>
+                    <select className="filter-select" value={this.props.vmodel.currentFilter} onChange={this.props.vmodel.filter}>
+                        <option value="5">All stars</option>
                         <option value="1">Greater than 1 star</option>
                         <option value="2">Greater than 2 star</option>
                         <option value="3">Greater than 3 star</option>

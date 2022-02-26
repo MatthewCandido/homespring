@@ -13,11 +13,11 @@ class BooksController implements Controller {
     }
 
     public intializeRoutes() {
-        this.router.get(`${this.path}/:q`, this.getBooks);
+        this.router.get(`${this.path}/:q/:startIndex`, this.getBooks);
     }
 
     private getBooks = async (request: express.Request, response: express.Response, next: express.NextFunction) => {
-        this.booksService.getBooksBySearch(request.params.q).then(books => {
+        this.booksService.getBooksBySearch(request.params.q, Number(request.params.startIndex)).then(books => {
             response.send(books)
         }, (err) => {
             next(new InternalServerErrorException(err));

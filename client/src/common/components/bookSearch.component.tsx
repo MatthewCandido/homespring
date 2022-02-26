@@ -11,7 +11,7 @@ class BookSearchComponent extends React.Component<IBookSearchComponentProps, any
         return <div className="search-container">
                 <div>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    <input className="search-input" type="text" placeholder="Start searching..." />
+                    <input className="search-input" type="text" placeholder="Start searching..."  onChange={this.props.vmodel.search}/>
                 </div>
             </div>
     } 

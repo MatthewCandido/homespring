@@ -26,8 +26,10 @@ class Book {
     @observable pageCount: string = '';
     @serializable
     @observable averageRating: number = -1;
+    @serializable
+    @observable totalItems: number = -1;
 
-    constructor(title: string, authors: string[], publisher: string, publishedDate: string, description: string, thumbnail: string, categories: string[], pageCount: string, averageRating: number) {
+    constructor(title: string, authors: string[], publisher: string, publishedDate: string, description: string, thumbnail: string, categories: string[], pageCount: string, averageRating: number, totalItems: number) {
         makeObservable(this);
         this.title = title;
         this.authors = authors;
@@ -38,6 +40,7 @@ class Book {
         this.categories = categories;
         this.pageCount = pageCount;
         this.averageRating = averageRating;
+        this.totalItems = totalItems;
 
         createModelSchema(Book, {
             title: primitive(),
@@ -48,7 +51,8 @@ class Book {
             thumbnail: primitive(),
             categories: primitive(),
             pageCount: primitive(),
-            averageRating: primitive()
+            averageRating: primitive(),
+            totalItems: primitive()
         })
     }
 
@@ -70,7 +74,8 @@ class Book {
             "thumbnail": this.thumbnail,
             "categories": this.categories,
             "pageCount": this.pageCount,
-            "averageRating": this.averageRating
+            "averageRating": this.averageRating,
+            "totalItems": this.totalItems
         }
     }
 }

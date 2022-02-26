@@ -9,7 +9,7 @@ class BooksService {
         return new Promise( async (resolve, reject) => {
             const options = {
                 host: this.GOOGLE_BOOKS_ENDPOINT,
-                path: `/books/v1/volumes?q=${q}&startIndex=${startIndex}&maxResults=5&key=${this.GOOGLE_BOOKS_APIKEY}`
+                path: `/books/v1/volumes?q=${q}&startIndex=${startIndex}&maxResults=10&key=${this.GOOGLE_BOOKS_APIKEY}`
             };
             const response = await axios.get(`${options.host}${options.path}`);
             if (!response) 
@@ -26,7 +26,8 @@ class BooksService {
                     "description": item.volumeInfo.description, 
                     "thumbnail": item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "",
                     "categories": item.volumeInfo.categories ? item.volumeInfo.categories : [],
-                    "averageRating": item.volumeInfo.averageRating ? item.volumeInfo.averageRating : null
+                    "averageRating": item.volumeInfo.averageRating ? item.volumeInfo.averageRating : null,
+                    "totalItems": response.data.totalItems
                 });
             });
             resolve(books);

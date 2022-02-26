@@ -16,7 +16,7 @@ class BookListComponent extends React.Component<IBookListComponentProps, any> {
                     <BookItemComponent books={this.props.books}/>
                 </div>
                 <div className="pagination-container">
-                    <Pagination onChange={this.props.vmodel.paginationChange} count={5} variant="outlined" shape="rounded" />
+                    <Pagination onChange={this.props.vmodel.paginationChange} count={this.props.vmodel.getTotalItems() / 5} variant="outlined" shape="rounded" />
                 </div>
             </div>
     } 

@@ -24,7 +24,8 @@ class BooksService {
                     "publisher": item.volumeInfo.publisher, 
                     "publishedDate": item.volumeInfo.publishedDate, 
                     "description": item.volumeInfo.description, 
-                    "thumbnail": item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : ""
+                    "thumbnail": item.volumeInfo.imageLinks ? item.volumeInfo.imageLinks.thumbnail : "",
+                    "categories": item.volumeInfo.categories ? item.volumeInfo.categories : []
                 });
             });
             resolve(books);

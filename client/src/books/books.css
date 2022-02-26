@@ -1,0 +1,14 @@
+body {
+    background-color: #FAFAFA;
+    font-family: Average Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 150%;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

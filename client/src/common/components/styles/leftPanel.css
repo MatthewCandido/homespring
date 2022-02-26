@@ -1,0 +1,18 @@
+.left-panel-container {
+    width: 45%;
+}
+
+.filter-title {
+    font-size: 16px;
+    line-height: 150%;
+    color: #18181B;
+}
+
+.filter-select {
+    width: 255px;
+    height: 40px;
+    background: #FFFFFF;
+    border: 1px solid #D4D4D8;
+    box-sizing: border-box;
+    border-radius: 4px;
+}
